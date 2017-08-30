@@ -67,7 +67,7 @@ body {
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.search-container button {
+.search-container .button {
   display: inline-block;
   padding: 6px 12px;
   font-size: 14px;
@@ -84,6 +84,7 @@ body {
   background-color: #5cb85c;
   border-color: #4cae4c;
   margin: 10px;
+  text-decoration: none;
 }
 
 .header-container .search-container {
