@@ -7,6 +7,7 @@ var Switch = ReactRouter.Switch;
 var Header = require('./Header');
 var Home = require('./Home');
 var Forecast = require('./Forecast');
+var Detail = require('./Detail');
 
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/forecast' component={Forecast} />
+            <Route path='/detail/:city' component={Detail} />
           </Switch>
         </div>
       </Router>

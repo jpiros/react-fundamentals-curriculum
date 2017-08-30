@@ -9,7 +9,7 @@ function DaysGrid (props) {
     <div className='days-container'>
       {props.days.map(function(day) {
         return (
-          <Day key={day.dt} day={day} />
+          <Day key={day.dt} day={day} city={props.city} />
         )
       })}
     </div>
@@ -43,7 +43,7 @@ class Forecast extends React.Component {
         <h1 className='city'>{this.state.city}</h1>
         {this.state.loading
           ? <Loading />
-          : <DaysGrid days={this.state.days} />}
+          : <DaysGrid days={this.state.days} city={this.state.city}/>}
       </div>
     )
   }
