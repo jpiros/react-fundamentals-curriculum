@@ -19,8 +19,11 @@ body {
 }
 
 .header-container {
-  font-size: 32px;
-  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(252,90,44,.89);
+  color: #fff;
+  padding: 5px;
 }
 
 .home-container {
@@ -81,4 +84,8 @@ body {
   background-color: #5cb85c;
   border-color: #4cae4c;
   margin: 10px;
+}
+
+.header-container .search-container {
+  flex-direction: row;
 }
