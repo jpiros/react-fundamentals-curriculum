@@ -2,6 +2,19 @@ var React = require('react');
 var queryString = require('query-string');
 var api = require('../utils/api');
 var Loading = require('./Loading');
+var Day = require('./Day');
+
+function DaysGrid (props) {
+  return (
+    <div className='days-container'>
+      {props.days.map(function(day) {
+        return (
+          <Day key={day.dt} day={day} />
+        )
+      })}
+    </div>
+  )
+}
 
 class Forecast extends React.Component {
   constructor(props) {
@@ -9,15 +22,20 @@ class Forecast extends React.Component {
 
     this.state = {
       city: queryString.parse(this.props.location.search).city,
-      list: null,
+      days: null,
       loading: true
     }
   }
   componentDidMount () {
     api.fetchWeatherForecast(this.state.city)
       .then(function (response) {
-        console.log(response);
-      })
+        this.setState(function () {
+          return {
+            days: response.list,
+            loading: false
+          }
+        })
+      }.bind(this))
   }
   render() {
     return (
@@ -25,7 +43,7 @@ class Forecast extends React.Component {
         <h1 className='city'>{this.state.city}</h1>
         {this.state.loading
           ? <Loading />
-          : <div>Forecast Here</div>}
+          : <DaysGrid days={this.state.days} />}
       </div>
     )
   }
