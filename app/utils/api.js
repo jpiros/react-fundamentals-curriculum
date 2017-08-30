@@ -9,7 +9,7 @@ module.exports = {
 
     return axios.get(encodedURI)
       .then(function (response) {
-        console.log(response);
+        return response.data;
       })
   },
   fetchWeatherForecast: function (city) {
@@ -17,7 +17,7 @@ module.exports = {
     
     return axios.get(encodedURI)
       .then(function (response) {
-        console.log(response);
+        return response.data;
       })
   }
 }
