@@ -1,9 +1,16 @@
 var React = require('react');
 
+var Header = require('./Header');
+var Home = require('./Home');
+
+
 class App extends React.Component {
   render() {
     return (
-      <div>Hello World</div>
+      <div id='container'>
+        <Header />
+        <Home />
+      </div>
     )
   }
 }
